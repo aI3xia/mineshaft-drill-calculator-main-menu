@@ -9,7 +9,9 @@ export const Resources = {
   "raw-copper": "Raw Copper",
   "raw-iron": "Raw Iron",
   "raw-lead": "Raw Lead",
+  "raw-uranium": "Raw Uranium",
   "raw-zinc": "Raw Zinc",
+  "raw-zirconium": "Raw Zirconium",
   "bauxite-residue": "Bauxite Residue",
   "table-salt": "Table Salt",
   "shallow-ef": "Shallow Earth Fragment",
@@ -348,6 +350,31 @@ export const Depths = {
     { resourceId: "bauxite-residue", amount: 2.1 },
     { resourceId: "rock", amount: 10.7 },
     { resourceId: "deep-ef", amount: 11.7 },
+  ],
+  8200: [
+    { resourceId: "raw-zirconium", amount: 0.7 },
+    { resourceId: "rock", amount: 11.7 },
+    { resourceId: "deep-ef", amount: 3.9 },
+  ],
+  8400: [
+    { resourceId: "raw-zirconium", amount: 1.9 },
+    { resourceId: "raw-uranium", amount: 0.2 },
+    { resourceId: "deep-ef", amount: 1.7 },
+  ],
+  8600: [
+    { resourceId: "raw-zirconium", amount: 0.6 },
+    { resourceId: "raw-uranium", amount: 2.4 },
+    { resourceId: "raw-iron", amount: 11.6 },
+  ],
+  8800: [
+    { resourceId: "bauxite-residue", amount: 4.7 },
+    { resourceId: "raw-uranium", amount: 2.4 },
+    { resourceId: "raw-iron", amount: 11.9 },
+  ],
+  9000: [
+    { resourceId: "raw-lead", amount: 9.4 },
+    { resourceId: "raw-zirconium", amount: 0.8 },
+    { resourceId: "raw-iron", amount: 3.9 },
   ],
 } as const satisfies Record<number, DepthYield[]>;
 

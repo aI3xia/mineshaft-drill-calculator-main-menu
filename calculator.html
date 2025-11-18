@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mineshaft Drill Calculator</title>
+    <link rel="stylesheet" href="./src/style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="drill.png" />
+    <meta property="og:title" content="Mineshaft Drill Calculator" />
+    <meta
+      property="og:description"
+      content="Mineshaft Drill calculator app for Industrialist."
+    />
+    <meta property="og:site_name" content="GitHub Pages" />
+    <meta
+      property="og:image"
+      content="https://industrialist-wiki.github.io/mineshaft-drill-calculator/drill.png"
+    />
+  </head>
+
+  <body>
+    <!-- Back Button -->
+    <div class="back-button-container">
+      <button id="back-button" class="back-to-menu-button">
+        ← Back to Menu
+      </button>
+    </div>
+
+    <div class="main">
+      <img src="drill.png" id="drill-image" alt=":3" />
+      <h1>Mineshaft Drill Calculator</h1>
+    </div>
+    <div class="settings">
+      <label class="title" style="border-bottom: none">Settings</label>
+      <div class="boxes">
+        <div id="drill-head-select" class="dropdown-box">
+          <button id="drill-head-button" class="dropdown-button"></button>
+          <div id="drill-head-content" class="dropdown-content"></div>
+        </div>
+        <div id="acid-select" class="dropdown-box">
+          <button id="acid-button" class="dropdown-button"></button>
+          <div id="acid-content" class="dropdown-content"></div>
+        </div>
+        <div id="oil-select" class="dropdown-box">
+          <button id="oil-button" class="dropdown-button"></button>
+          <div id="oil-content" class="dropdown-content"></div>
+        </div>
+        <div id="depth-select" class="dropdown-box">
+          <button id="depth-button" class="dropdown-button"></button>
+          <div id="depth-content" class="dropdown-content"></div>
+        </div>
+      </div>
+    </div>
+    <div class="information">
+      <div class="info">
+        <label class="title">Drillhead Info</label>
+        <label id="deterioration-label" class="drill-head-info"></label>
+        <label id="lifetime-label" class="drill-head-info"></label>
+        <label id="replacement-label" class="drill-head-info"></label>
+        <label id="cycle-label" class="drill-head-info"></label>
+        <label id="efficiency-label" class="drill-head-info"></label>
+        <br />
+        <label class="title">Consumption Info</label>
+        <label id="drill-head-label" class="drill-head-info dddd"></label>
+        <label id="materials-label" class="drill-head-info dddd"></label>
+        <label id="acid-label" class="drill-head-info"></label>
+        <label id="oil-label" class="drill-head-info"></label>
+        <label id="power-label" class="drill-head-info"></label>
+        <br />
+        <label class="title">Output Info</label>
+        <label id="output-label-1" class="output-label"></label>
+        <label id="output-label-2" class="output-label"></label>
+        <label id="output-label-3" class="output-label"></label>
+        <label id="output-label-4" class="output-label"></label>
+      </div>
+    </div>
+    <p class="disclaimer">
+      <a href="https://github.com/Industrialist-Wiki/mineshaft-drill-calculator"
+        >Source Code</a
+      >
+      • Calculator made by
+      <a href="https://github.com/MifMaf">Mif_Maf</a>
+      and <a href="https://github.com/nextrg">next_g</a>
+    </p>
+    <script type="module" src="/src/script.ts"></script>
+  </body>
+</html>

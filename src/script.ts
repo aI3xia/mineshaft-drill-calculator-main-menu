@@ -11,6 +11,16 @@ import {
   type DepthYield,
 } from "./data";
 
+// Add back button functionality
+function initBackButton() {
+  const backButton = document.getElementById("back-button");
+  if (backButton) {
+    backButton.addEventListener("click", () => {
+      window.location.href = "./index.html";
+    });
+  }
+}
+
 const Dropdowns = {
   drillHeadDropdown: {
     button: document.getElementById("drill-head-button")!,
@@ -251,6 +261,9 @@ Dropdowns.oilDropdown.button.addEventListener("click", () =>
 Dropdowns.depthDropdown.button.addEventListener("click", () =>
   changeDropdownShow("depthDropdown", "toggle")
 );
+
+// Initialize back button
+initBackButton();
 
 swapDrillHead("copper");
 swapAcid("none");
