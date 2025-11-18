@@ -11,7 +11,6 @@ import {
   type DepthYield,
 } from "./data";
 
-// Add back button functionality
 function initBackButton() {
   const backButton = document.getElementById("back-button");
   if (backButton) {
@@ -262,7 +261,6 @@ Dropdowns.depthDropdown.button.addEventListener("click", () =>
   changeDropdownShow("depthDropdown", "toggle")
 );
 
-// Initialize back button
 initBackButton();
 
 swapDrillHead("copper");
