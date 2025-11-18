@@ -91,20 +91,20 @@ function createResourceCard(resource: Resource): HTMLElement {
   const chevron = resource.available ? createIcon("chevron-right-icon") : "";
 
   card.innerHTML = `
-    ${statusBadge}
-    <div class="card-content">
-      <div class="icon-container ${resource.color}">
-        <span class="icon">${icon}</span>
+      ${statusBadge}
+      <div class="card-content">
+        <div class="icon-container ${resource.color}">
+          <span class="icon">${icon}</span>
+        </div>
+        <div class="card-text">
+          <h3 class="card-title">
+            ${resource.title}
+            ${chevron ? `<span class="chevron">${chevron}</span>` : ""}
+          </h3>
+          <p class="card-description">${resource.description}</p>
+        </div>
       </div>
-      <div class="card-text">
-        <h3 class="card-title">
-          ${resource.title}
-          ${chevron ? `<span class="chevron">${chevron}</span>` : ""}
-        </h3>
-        <p class="card-description">${resource.description}</p>
-      </div>
-    </div>
-  `;
+    `;
 
   if (resource.available) {
     card.style.cursor = "pointer";
@@ -123,28 +123,28 @@ function handleResourceClick(resource: Resource): void {
 
 function renderMainMenu(): void {
   Elements.app.innerHTML = `
-    <div class="container">
-      <!-- Header -->
-      <div class="header">
-        <div class="header-icon">${createIcon("wrench-icon")}</div>
-        <h1 class="title">Industrialist Wiki</h1>
-        <p class="subtitle">Resource Hub & Calculators</p>
+      <div class="container">
+        <!-- Header -->
+        <div class="header">
+          <div class="header-icon">${createIcon("wrench-icon")}</div>
+          <h1 class="title">Industrialist Wiki</h1>
+          <p class="subtitle">Resource Hub & Calculators</p>
+        </div>
+        
+        <!-- Resource Grid -->
+        <div class="resource-grid" id="resource-grid"></div>
+        
+        <!-- Footer -->
+        <div class="footer">
+          <p>Built for the Industrialist community</p>
+          <p>
+            <a href="https://industrialist.miraheze.org/" target="_blank" rel="noopener noreferrer">
+              Visit the Industrialist Wiki
+            </a>
+          </p>
+        </div>
       </div>
-      
-      <!-- Resource Grid -->
-      <div class="resource-grid" id="resource-grid"></div>
-      
-      <!-- Footer -->
-      <div class="footer">
-        <p>Built for the Industrialist community</p>
-        <p>
-          <a href="https://industrialist.miraheze.org/" target="_blank" rel="noopener noreferrer">
-            Visit the Industrialist Wiki
-          </a>
-        </p>
-      </div>
-    </div>
-  `;
+    `;
 
   const grid = document.getElementById("resource-grid")!;
   Object.values(Resources).forEach((resource) => {
@@ -156,37 +156,37 @@ function renderResourceView(resource: Resource): void {
   const icon = createIcon(resource.iconClass);
 
   Elements.app.innerHTML = `
-    <div class="container">
-      <!-- Back Button -->
-      <button class="back-button" id="back-button">
-        ${createIcon("arrow-left-icon")} Back to Menu
-      </button>
-      
-      <!-- Resource Content -->
-      <div class="resource-view">
-        <div class="resource-header">
-          <div class="icon-container ${resource.color}">
-            <span class="icon">${icon}</span>
-          </div>
-          <div>
-            <h2 class="resource-title">${resource.title}</h2>
-            <p class="resource-description">${resource.description}</p>
-          </div>
-        </div>
+      <div class="container">
+        <!-- Back Button -->
+        <button class="back-button" id="back-button">
+          ${createIcon("arrow-left-icon")} Back to Menu
+        </button>
         
-        <div class="resource-content" id="resource-content">
-          ${
-            resource.id === "drill-calculator"
-              ? `<iframe src="${resource.url}" class="calculator-iframe" title="${resource.title}"></iframe>`
-              : `<div class="coming-soon">
-                <p>This resource is under development.</p>
-                <p>Check back soon for updates!</p>
-              </div>`
-          }
+        <!-- Resource Content -->
+        <div class="resource-view">
+          <div class="resource-header">
+            <div class="icon-container ${resource.color}">
+              <span class="icon">${icon}</span>
+            </div>
+            <div>
+              <h2 class="resource-title">${resource.title}</h2>
+              <p class="resource-description">${resource.description}</p>
+            </div>
+          </div>
+          
+          <div class="resource-content" id="resource-content">
+            ${
+              resource.id === "drill-calculator"
+                ? `<iframe src="${resource.url}" class="calculator-iframe" title="${resource.title}"></iframe>`
+                : `<div class="coming-soon">
+                  <p>This resource is under development.</p>
+                  <p>Check back soon for updates!</p>
+                </div>`
+            }
+          </div>
         </div>
       </div>
-    </div>
-  `;
+    `;
 
   document.getElementById("back-button")!.addEventListener("click", () => {
     currentView = "menu";
