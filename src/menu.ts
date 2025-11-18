@@ -1,4 +1,3 @@
-// Types
 interface Resource {
   id: string;
   title: string;
@@ -11,7 +10,6 @@ interface Resource {
 
 type ViewType = "menu" | string;
 
-// Resource definitions
 const Resources: Record<string, Resource> = {
   drillCalculator: {
     id: "drill-calculator",
@@ -21,7 +19,7 @@ const Resources: Record<string, Resource> = {
     iconClass: "calculator-icon",
     color: "blue",
     available: true,
-    url: "./calculator.html", // Link to the existing calculator HTML file
+    url: "./calculator.html", 
   },
   productionCalculator: {
     id: "production-calculator",
@@ -34,15 +32,12 @@ const Resources: Record<string, Resource> = {
   },
 };
 
-// DOM Elements (will be initialized after DOM loads)
 let Elements: {
   app: HTMLElement;
 };
 
-// State
 let currentView: ViewType = "menu";
 
-// Helper functions
 function createIcon(iconClass: string): string {
   const icons: Record<string, string> = {
     "calculator-icon": "",
@@ -62,13 +57,11 @@ function createResourceCard(resource: Resource): HTMLElement {
     !resource.available ? "unavailable" : ""
   }`;
 
-  // Status badge
   let statusBadge = "";
   if (!resource.available) {
     statusBadge = '<div class="status-badge">Coming Soon</div>';
   }
 
-  // Icon and content
   const icon = createIcon(resource.iconClass);
   const chevron = resource.available ? createIcon("chevron-right-icon") : "";
 
@@ -99,10 +92,10 @@ function createResourceCard(resource: Resource): HTMLElement {
 function handleResourceClick(resource: Resource): void {
   if (resource.available) {
     if (resource.url) {
-      // Navigate to the URL (like calculator.html)
+      
       window.location.href = resource.url;
     } else {
-      // Show internal view
+      
       currentView = resource.id;
       renderResourceView(resource);
     }
@@ -182,9 +175,8 @@ function renderResourceView(resource: Resource): void {
   });
 }
 
-// Initialize
 function init(): void {
-  // Initialize DOM elements after page loads
+
   Elements = {
     app: document.getElementById("app")!,
   };
@@ -197,7 +189,6 @@ function init(): void {
   renderMainMenu();
 }
 
-// Run on load
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", init);
 } else {
