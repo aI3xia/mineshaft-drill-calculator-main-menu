@@ -19,7 +19,7 @@ const Resources: Record<string, Resource> = {
     iconClass: "calculator-icon",
     color: "blue",
     available: true,
-    url: "./calculator.html", 
+    url: "./calculator.html",
   },
   productionCalculator: {
     id: "production-calculator",
@@ -35,8 +35,6 @@ const Resources: Record<string, Resource> = {
 let Elements: {
   app: HTMLElement;
 };
-
-let currentView: ViewType = "menu";
 
 function createIcon(iconClass: string): string {
   const icons: Record<string, string> = {
@@ -92,11 +90,8 @@ function createResourceCard(resource: Resource): HTMLElement {
 function handleResourceClick(resource: Resource): void {
   if (resource.available) {
     if (resource.url) {
-      
       window.location.href = resource.url;
     } else {
-      
-      currentView = resource.id;
       renderResourceView(resource);
     }
   }
@@ -169,13 +164,11 @@ function renderResourceView(resource: Resource): void {
   `;
 
   document.getElementById("back-button")!.addEventListener("click", () => {
-    currentView = "menu";
     renderMainMenu();
   });
 }
 
 function init(): void {
-
   Elements = {
     app: document.getElementById("app")!,
   };
