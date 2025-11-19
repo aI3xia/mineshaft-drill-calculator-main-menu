@@ -1,4 +1,3 @@
-// Types
 interface Resource {
   id: string;
   title: string;
@@ -29,7 +28,7 @@ const Resources: Record<string, Resource> = {
       "Calculate ratios and optimal production chain(s) for every item or fluid",
     iconClass: "package-icon",
     color: "purple",
-    available: false,
+    available: true,
   },
 };
 
@@ -60,7 +59,7 @@ function createResourceCard(resource: Resource): HTMLElement {
 
   let statusBadge = "";
   if (!resource.available) {
-    statusBadge = '<div class="status-badge">Coming Soon</div>';
+    statusBadge = '<div class="status-badge">Coming Soon™</div>';
   }
 
   const icon = createIcon(resource.iconClass);
@@ -162,7 +161,6 @@ function renderResourceView(resource: Resource): void {
               ? `<iframe src="${resource.url}" class="calculator-iframe" title="${resource.title}"></iframe>`
               : `<div class="coming-soon">
                 <p>This resource is under development.</p>
-                <p>Check back soon for updates!</p>
               </div>`
           }
         </div>

@@ -5,10 +5,8 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
+  font-family: sans-serif;
   background-color: #282828;
-  color: white;
   min-height: 100vh;
   padding: 2rem;
 }
@@ -23,22 +21,16 @@ body {
   margin: 0 auto;
 }
 
-/* Header */
 .header {
   text-align: center;
   margin-bottom: 3rem;
 }
 
-.header-icon {
-  font-size: 4rem;
-  margin-bottom: 1rem;
-}
-
 .title {
-  font-size: 3rem;
-  font-weight: bold;
+  font-size: 5rem;
+  font-weight: 500;
   margin-bottom: 1rem;
-  background: #eddbb2;
+  background: #fbf1c7;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -46,10 +38,9 @@ body {
 
 .subtitle {
   font-size: 1.25rem;
-  color: #9ca3af;
+  color: #fbf1c7;
 }
 
-/* Resource Grid */
 .resource-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
@@ -59,17 +50,17 @@ body {
 
 .resource-card {
   position: relative;
-  background: #282828;
+  background: #1d2021;
   border-radius: 0.5rem;
   padding: 1.5rem;
-  border: 2px solid #9ca3af;
+  border: 2px solid #2e3132;
   transition: all 0.3s ease;
 }
 
 .resource-card:not(.unavailable):hover {
-  border-color: #3b82f6;
+  border-color: #2e3132;
   transform: scale(1.05);
-  box-shadow: 0 20px 25px -5px rgba(59, 130, 246, 0.2);
+  box-shadow: 0 20px 25px -5px #1d2021;
 }
 
 .resource-card.unavailable {
@@ -81,47 +72,17 @@ body {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  background: #374151;
-  color: #9ca3af;
+  background: #2e3132;
+  color: #fbf1c7;
   padding: 0.25rem 0.75rem;
   border-radius: 9999px;
   font-size: 0.75rem;
   font-weight: 600;
 }
 
-.card-content {
-  display: flex;
-  gap: 1rem;
-}
-
-.icon-container {
-  padding: 1rem;
-  border-radius: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.icon-container.blue {
-  background: #3b82f6;
-}
-.icon-container.green {
-  background: #10b981;
-}
-.icon-container.purple {
-  background: #8b5cf6;
-}
-.icon-container.yellow {
-  background: #eab308;
-}
-
-.icon {
-  font-size: 2rem;
-}
-
 .card-text {
   flex: 1;
+  color: #fbf1c7;
 }
 
 .card-title {
@@ -134,19 +95,18 @@ body {
 }
 
 .chevron {
-  color: #9ca3af;
+  color: #fbf1c7;
   font-size: 1.25rem;
 }
 
 .card-description {
-  color: #9ca3af;
+  color: #fbf1c7;
   font-size: 0.875rem;
 }
 
-/* Footer */
 .footer {
   text-align: center;
-  color: #6b7280;
+  color: #fbf1c7;
   font-size: 0.875rem;
   margin-top: 3rem;
 }
@@ -165,35 +125,35 @@ body {
   color: #93c5fd;
 }
 
-/* Back Button */
 .back-button {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   background: transparent;
-  border: none;
   color: #60a5fa;
   font-size: 1rem;
+  background: #ffffff;
   cursor: pointer;
   padding: 0.5rem;
   margin-bottom: 2rem;
   transition: color 0.2s;
+  border-radius: 0.2px;
+  border-color: #2e3132;
 }
 
 .back-button:hover {
   color: #93c5fd;
 }
 
-/* Resource View */
 .resource-view {
-  background: #1f2937;
   border-radius: 0.5rem;
   padding: 2rem;
-  border: 2px solid #374151;
 }
 
 .resource-header {
   display: flex;
+  color: #fbf1c7;
+  font-family: sans-serif;
   gap: 1rem;
   margin-bottom: 1.5rem;
   align-items: center;
@@ -201,19 +161,19 @@ body {
 
 .resource-title {
   font-size: 2rem;
-  font-weight: bold;
+  font-weight: 500;
   margin-bottom: 0.5rem;
 }
 
 .resource-description {
-  color: #9ca3af;
+  color: #fbf1c7;
 }
 
 .resource-content {
-  background: #111827;
+  background: #1d2021;
   border-radius: 0.5rem;
   padding: 1.5rem;
-  border: 1px solid #374151;
+  border: 2px solid #2e3132;
 }
 
 .calculator-iframe {
@@ -225,7 +185,7 @@ body {
 
 .coming-soon {
   text-align: center;
-  color: #6b7280;
+  color: #fbf1c7;
   padding: 2rem;
 }
 
@@ -233,14 +193,13 @@ body {
   margin-bottom: 0.5rem;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 990px) {
   .resource-grid {
     grid-template-columns: 1fr;
   }
 
   .title {
-    font-size: 2rem;
+    font-size: 4rem;
   }
 
   .subtitle {
