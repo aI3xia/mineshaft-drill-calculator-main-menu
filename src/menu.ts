@@ -8,8 +8,6 @@ interface Resource {
   url?: string;
 }
 
-type ViewType = "menu" | string;
-
 const Resources: Record<string, Resource> = {
   drillCalculator: {
     id: "drill-calculator",
