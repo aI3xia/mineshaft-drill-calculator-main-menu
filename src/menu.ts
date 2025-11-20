@@ -8,14 +8,14 @@ interface Resource {
   url?: string;
 }
 
+type ViewType = "menu" | string;
+
 const Resources: Record<string, Resource> = {
   drillCalculator: {
     id: "drill-calculator",
     title: "Mineshaft Drill Calculator",
     description:
       "Calculate drill depths, resource yields, and optimal configurations for the Mineshaft Drill",
-    iconClass: "calculator-icon",
-    color: "blue",
     available: true,
     url: "./calculator.html",
   },
@@ -24,11 +24,12 @@ const Resources: Record<string, Resource> = {
     title: "Production Calculator",
     description:
       "Calculate ratios and optimal production chain(s) for every item or fluid",
-    iconClass: "package-icon",
-    color: "purple",
-    available: true,
+    available: false,
   },
 };
+
+let currentView: ViewType = "menu";
+let appElement: HTMLElement;
 
 let Elements: {
   app: HTMLElement;
@@ -36,11 +37,6 @@ let Elements: {
 
 function createIcon(iconClass: string): string {
   const icons: Record<string, string> = {
-    "calculator-icon": "",
-    "book-icon": "",
-    "package-icon": "",
-    "zap-icon": "",
-
     "arrow-left-icon": "←",
     "chevron-right-icon": "›",
   };
@@ -96,7 +92,9 @@ function handleResourceClick(resource: Resource): void {
 }
 
 function renderMainMenu(): void {
-  Elements.app.innerHTML = `
+  if (!appElement) return;
+
+  appElement.innerHTML = `
     <div class="container">
       <!-- Header -->
       <div class="header">
@@ -127,9 +125,11 @@ function renderMainMenu(): void {
 }
 
 function renderResourceView(resource: Resource): void {
+  if (!appElement) return;
+
   const icon = createIcon(resource.iconClass);
 
-  Elements.app.innerHTML = `
+  appElement.innerHTML = `
     <div class="container">
       <!-- Back Button -->
       <button class="back-button" id="back-button">
@@ -154,6 +154,7 @@ function renderResourceView(resource: Resource): void {
               ? `<iframe src="${resource.url}" class="calculator-iframe" title="${resource.title}"></iframe>`
               : `<div class="coming-soon">
                 <p>This resource is under development.</p>
+                <p>Check back soon for updates!</p>
               </div>`
           }
         </div>
@@ -162,25 +163,45 @@ function renderResourceView(resource: Resource): void {
   `;
 
   document.getElementById("back-button")!.addEventListener("click", () => {
+    currentView = "menu";
     renderMainMenu();
   });
 }
 
 function init(): void {
-  Elements = {
-    app: document.getElementById("app")!,
-  };
+  console.log("Init function called");
+  console.log("Document ready state:", document.readyState);
 
-  if (!Elements.app) {
+  appElement = document.getElementById("app");
+
+  console.log("App element:", appElement);
+
+  if (!appElement) {
     console.error("App element not found!");
-    return;
+    console.log("Available elements:", document.body.innerHTML);
+    appElement = document.createElement("div");
+    appElement.id = "app";
+    document.body.appendChild(appElement);
+    console.log("Created app element");
   }
 
+  console.log("App initialized successfully");
   renderMainMenu();
 }
 
+console.log("Script loaded");
+
 if (document.readyState === "loading") {
+  console.log("Document still loading, adding event listener");
   document.addEventListener("DOMContentLoaded", init);
 } else {
+  console.log("Document already loaded, calling init immediately");
   init();
 }
+
+setTimeout(() => {
+  if (!appElement) {
+    console.log("Backup initialization triggered");
+    init();
+  }
+}, 100);
